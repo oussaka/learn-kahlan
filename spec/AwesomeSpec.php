@@ -39,5 +39,18 @@ describe('Awesome', function () {
             expect($result)->toBe($expected);
         });
 
+        it("called how many times assert", function () {
+            $param = 'foo';
+            $expected = $param.' processed';
+
+            expect('rand')->toBeCalled()->once();
+
+            $result = $this->awesome->process($param);
+
+            if($result == $expected) {
+                // todo: awesomedependancy->process assert how many times it called
+            }
+        });
+
     });
 });
