@@ -25,4 +25,11 @@ class Awesome
         }
         return $data;
     }
+
+    public function call($foo)
+    {
+        return function() use ($foo) {
+            return $foo;
+        };
+    }
 }

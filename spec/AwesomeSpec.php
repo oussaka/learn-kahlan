@@ -53,4 +53,15 @@ describe('Awesome', function () {
         });
 
     });
+
+    describe("Testing Closure", function(){
+        it("is callable", function(){
+            $foo = 'foo';
+            $call = $this->awesome->call($foo);
+            expect(is_callable($call))->toBeTruthy();
+
+            $invoked = $call->__invoke();
+            expect($invoked)->toBe($foo);
+        });
+    });
 });
