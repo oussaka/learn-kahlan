@@ -11,6 +11,8 @@ namespace App\Spec;
 use App\Awesome;
 use App\AwesomeDependency;
 use Kahlan\Arg;
+use Kahlan\Plugin\Quit;
+use Kahlan\QuitException;
 
 describe('Awesome', function () {
 
@@ -62,6 +64,25 @@ describe('Awesome', function () {
 
             $invoked = $call->__invoke();
             expect($invoked)->toBe($foo);
+        });
+    });
+
+
+    describe("Test exit function", function () {
+       it("return true", function (){
+           $arg = 1;
+
+           expect($this->awesome->toDie($arg))->toBeTruthy();
+       });
+
+       it("quit patching if false", function (){
+           Quit::disable();
+
+           $closure = function() {
+               $this->awesome->toDie(0);
+           };
+
+           expect($closure)->toThrow(new QuitException());
         });
     });
 });

@@ -32,4 +32,13 @@ class Awesome
             return $foo;
         };
     }
+
+    public function toDie($arg)
+    {
+        if ($arg === 1) {
+            return true;
+        }
+
+        exit('app exit.');
+    }
 }
