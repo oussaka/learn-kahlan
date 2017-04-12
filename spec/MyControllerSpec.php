@@ -47,7 +47,7 @@ describe('MyController Hard dependency', function () {
 
             $this->myController->save();
             $result = ob_get_clean();
-            expect($result)->toBe("not saved!");
+            expect($result)->toBe("not saved");
         });
     });
 
